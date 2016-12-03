@@ -65,13 +65,13 @@ var encode = function() {
     // exit early if the message is too big for the image
     var pixelCount = ctx.canvas.width * ctx.canvas.height;
     if ((message.length + 1) * 16 > pixelCount * 4 * 0.75) {
-        alert('Message is too big for the image.');
+        alert('消息对于图像太大');
         return;
     }
 
     // exit early if the message is above an artificial limit
     if (message.length > maxMessageSize) {
-        alert('Message is too big.');
+        alert('文本太多了');
         return;
     }
 
@@ -81,7 +81,7 @@ var encode = function() {
     ctx.putImageData(imgData, 0, 0);
 
     // view the new image
-    alert('Done! When the image appears, save and share it with someone.');
+    alert('完成!');
 
     output.src = canvas.toDataURL();
 
@@ -90,7 +90,7 @@ var encode = function() {
 // decode the image and display the contents if there is anything
 var decode = function() {
     var password = document.getElementById('password2').value;
-    var passwordFail = 'Password is incorrect or there is nothing here.';
+    var passwordFail = '密码不正确或这里没有任何东西';
 
     // decode the message with the supplied password
     var ctx = document.getElementById('canvas').getContext('2d');
